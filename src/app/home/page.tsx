@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { Search } from "lucide-react";
 import Nav from "@/components/Nav";
 import { CATEGORIES, PRODUCTS, REFERRALS } from "@/lib/demo/data";
@@ -45,14 +45,14 @@ export default function Home() {
     setMessage(result.ok ? "تم إنشاء الطلب التجريبي رقم " + result.order.id : result.error);
     refresh();
   };
-  const withdraw = (e: React.FormEvent<HTMLFormElement>) => {
+  const withdraw = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const result = requestWithdrawal(Number(withdrawAmount), iban);
     setMessage(result.ok ? "تم تسجيل طلب السحب التجريبي." : result.error);
     if (result.ok) { setWithdrawAmount(""); setIban(""); }
     refresh();
   };
-  const saveProfile = (e: React.FormEvent<HTMLFormElement>) => {
+  const saveProfile = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const result = updateProfile(profileName, phone);
     setMessage(result.ok ? "تم حفظ بيانات الحساب على هذا المتصفح." : result.error);
