@@ -1,0 +1,8 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+body{@apply bg-white text-navy2 antialiased}
+:focus-visible{outline:2px solid #1F4FBF;outline-offset:2px}
+@layer components{
+ .inp{@apply w-full rounded-lg border border-silver bg-slate-50 px-3 py-2.5 text-sm}
+ .btn{@apply w-full rounded-xl bg-royal py-3 font-medium text-white disabled:opacity-60}
+ .lbl{@apply mb-1 mt-4 block text-sm font-medium}
+}
